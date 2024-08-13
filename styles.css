@@ -1,0 +1,178 @@
+/* Reset body margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: grey;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Class to change background to blue */
+body.blue-bg {
+    background-color: #647291; /* The same blue color as the navbar */
+}
+
+/* Navbar styling */
+#navbar {
+    background-color: #647291; /* Background color for full-size navbar */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease; /* Smooth transition */
+    box-sizing: border-box;
+}
+
+/* Shrinked Navbar Style: Hide everything except the button on scroll */
+#navbar.shrink {
+    height: 50px; /* Set a fixed height */
+    background-color: transparent; /* Make the background transparent when shrunk */
+}
+
+#navbar.shrink .navbar-brand img,
+#navbar.shrink .navbar-nav {
+    display: none; /* Hide the logo and nav links */
+}
+
+#navbar.shrink #menuButton {
+    display: block; /* Show the menu button */
+}
+
+/* Navbar-specific styles */
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    transition: height 0.3s ease; /* Smooth logo size change */
+}
+
+.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1; /* Ensures the menu button aligns with the brand logo */
+}
+
+.navbar-nav li {
+    margin-left: 20px;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Adjusted Menu Button styling */
+#menuButton {
+    display: none;
+    height: 50px; /* Match the height of the navbar logo */
+    width: auto;
+    transition: height 0.3s ease; /* Smooth button size change */
+}
+
+/* Slider styling */
+#slider-container {
+    margin-top: 120px; /* Space between navbar and slider */
+    margin-bottom: 40px; /* Space between slider and content */
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    background-color: #000;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imgContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#imgContainer .motiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+#imgContainer .motiv.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.motiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content styling */
+.content {
+    padding: 20px;
+    background-color: white;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Ensure there's space above the footer */
+}
+
+/* Footer styling */
+#footer {
+    background-color: #647291;
+    padding: 10px 20px;
+    width: 100%;
+    bottom: 0;
+    position: relative; /* Position relative to avoid overlapping */
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    z-index: 999; /* Ensure it stays behind the navbar but above other content */
+}
+
+/* Ensure content doesn't overlap with footer */
+body {
+    padding-bottom: 60px; /* Ensure content doesn't overlap with the footer */
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #navbar {
+        background-color: transparent; /* Make the navbar transparent on small screens */
+        height: 50px; /* Adjust height for mobile view */
+    }
+
+    #navbar .navbar-brand img,
+    #navbar .navbar-nav {
+        display: none; /* Hide logo and nav links on small screens */
+    }
+    
+    #menuButton {
+        display: block; /* Show the menu button on small screens */
+    }
+
+    #imgContainer {
+        height: 300px; /* Adjust slider height for mobile view */
+    }
+}

@@ -3,260 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Slider with Thumbnails</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 150vh;
-            background-image: url('images/image1.webp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            color: #333;
-        }
-
-        nav {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            background: none;
-            flex-direction: column;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .logo {
-            height: 100px;
-            transition: transform 0.5s ease, height 0.5s ease;
-        }
-
-        .slideshow-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 1400px;
-            margin-top: 150px; /* Adjusted margin to accommodate the centered logo */
-            box-sizing: border-box;
-        }
-
-        .slideshow-container {
-            position: relative;
-            width: 70%;
-            height: 700px; /* Increased height for better image display */
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #333;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            margin: 0 20px;
-            transition: all 0.3s ease;
-        }
-
-        .slideshow-container:hover {
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-        }
-
-        .slideshow img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image covers the container */
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transform: scale(1.1);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .slideshow img.active {
-            display: block;
-            opacity: 1;
-            transform: scale(1);
-            z-index: 1;
-        }
-
-        .thumbnails {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .thumbnails img {
-            width: 110px;
-            height: 75px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 5px;
-            transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .thumbnails img:hover {
-            border-color: #333;
-            transform: scale(1.05);
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            font-size: 0.9em;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        footer a {
-            color: #f0e68c;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 767px) {
-            .slideshow-wrapper {
-                flex-direction: column;
-            }
-
-            .thumbnails {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .thumbnails img {
-                width: 80px;
-                margin-bottom: 5px;
-            }
-
-            .slideshow-container {
-                width: 90%;
-                height: 500px; /* Adjusted height for mobile view */
-                margin-bottom: 20px;
-            }
-
-            .logo {
-                height: 70px; /* Scales down logo on smaller screens */
-            }
-        }
-    </style>
+    <title>Simple Image Slider</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-    <nav id="nav">
-        <img src="images/casslogo.png" alt="Logo" class="logo">
-    </nav>
-    
-    <div class="slideshow-wrapper">
-        <div class="thumbnails">
-            <img src="images/1.jpg" data-index="0" alt="Thumb 1">
-            <img src="images/2.jpg" data-index="1" alt="Thumb 2">
-            <img src="images/3.jpg" data-index="2" alt="Thumb 3">
-            <img src="images/4.JPG" data-index="3" alt="Thumb 4">
-            <img src="images/5.jpg" data-index="4" alt="Thumb 5">
-        </div>
 
-        <div class="slideshow-container">
-            <div class="slideshow">
-                <img src="images/1.jpg" class="active" alt="Slide 1">
-                <img src="images/2.jpg" alt="Slide 2">
-                <img src="images/3.jpg" alt="Slide 3">
-                <img src="images/4.JPG" alt="Slide 4">
-                <img src="images/5.jpg" alt="Slide 5">
-                <img src="images/6.jpg" alt="Slide 6">
-                <img src="images/7.jpg" alt="Slide 7">
-                <img src="images/8.jpg" alt="Slide 8">
-                <img src="images/9.jpg" alt="Slide 9">
-                <img src="images/10.jpg" alt="Slide 10">
-            </div>
-        </div>
+    <!-- Navbar -->
+    <div id="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+        <ul class="navbar-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+        <img src="img/button-1.png" alt="Menu Button" id="menuButton">
+    </div>
 
-        <div class="thumbnails">
-            <img src="images/6.jpg" data-index="5" alt="Thumb 6">
-            <img src="images/7.jpg" data-index="6" alt="Thumb 7">
-            <img src="images/8.jpg" data-index="7" alt="Thumb 8">
-            <img src="images/9.jpg" data-index="8" alt="Thumb 9">
-            <img src="images/10.jpg" data-index="9" alt="Thumb 10">
+    <!-- Image Slider -->
+    <div id="slider-container">
+        <div id="imgContainer">
+            <div class="motiv active"><img src="img/1.jpg" alt="Image 1"></div>
+            <div class="motiv"><img src="img/2.jpg" alt="Image 2"></div>
+            <div class="motiv"><img src="img/3.jpg" alt="Image 3"></div>
+            <div class="motiv"><img src="img/4.jpg" alt="Image 4"></div>
+            <div class="motiv"><img src="img/5.jpg" alt="Image 5"></div>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Your Company. All rights reserved. | <a href="#privacy">Privacy Policy</a></p>
-    </footer>
+    <!-- Content Sections -->
+    <div class="content" id="home">
+        <h2>Welcome to Our Website</h2>
+        <p>This is the home section where you can introduce your site or business.</p>
+    </div>
 
-    <script>
-        const nav = document.getElementById('nav');
-        const logo = document.querySelector('.logo');
+    <div class="content" id="about">
+        <h2>About Us</h2>
+        <p>Provide some information about your business, team, or services here.</p>
+    </div>
 
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const fadeStart = 50;
-            const fadeEnd = 200;
+    <div class="content" id="gallery">
+        <h2>Gallery</h2>
+        <p>Showcase your work or products in this section.</p>
+    </div>
 
-            if (scrollPosition <= fadeStart) {
-                nav.style.opacity = '1';
-                logo.style.transform = 'scale(1)';
-            } else if (scrollPosition >= fadeEnd) {
-                nav.style.opacity = '0';
-                logo.style.transform = 'scale(0.8)';
-            } else {
-                const opacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
-                nav.style.opacity = opacity.toString();
-                logo.style.transform = `scale(${1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart) * 0.2})`;
-            }
-        });
+    <div class="content" id="contact">
+        <h2>Contact Us</h2>
+        <p>Provide your contact details or a contact form here.</p>
+    </div>
 
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slideshow img');
-        const thumbnails = document.querySelectorAll('.thumbnails img');
-        const totalSlides = slides.length;
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </div>
 
-        if (totalSlides > 0) {
-            slides[currentSlide].classList.add('active');
-
-            let slideshowInterval = setInterval(showNextSlide, 5000);
-
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    clearInterval(slideshowInterval);
-                    updateSlide(parseInt(this.dataset.index));
-                });
-            });
-
-            function showNextSlide() {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].classList.add('active');
-            }
-
-            function updateSlide(index) {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = index;
-                slides[currentSlide].classList.add('active');
-            }
-        }
-    </script>
+    <script src="script.js"></script> <!-- Link to external JS file -->
 </body>
 </html>
